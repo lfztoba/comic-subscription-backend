@@ -1,0 +1,136 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover {
+  color: #23a6d5;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 25px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  width: 40px;
+  overflow: hidden;
+}
+
+.search-container.expanded {
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 0;
+  transition: all 0.3s ease;
+}
+
+.search-container.expanded .search-input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-button:hover {
+  color: #23a6d5;
+}
+
+.search-container:hover {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo h1 {
+  font-family: 'Bangers', cursive;
+  color: #FF4081;
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link.active {
+  color: #FF4081;
+}
+
+.nav-link span {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .nav-link span {
+    display: none;
+  }
+}

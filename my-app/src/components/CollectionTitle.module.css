@@ -1,0 +1,75 @@
+.collectionTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.collectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.collectionTitle:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Custom styles for each collection */
+.FAVORITES {
+    color: #e74c3c;
+}
+
+.NEIGHBOR {
+    color: #3498db;
+}
+
+.MONSTRUM {
+    color: #8e44ad;
+}
+
+.PROMISED_PRINCESS {
+    color: #e84393;
+}
+
+.AFTERMATH {
+    color: #2d3436;
+}
+
+.SLICE_OF_LIFE {
+    color: #00b894;
+}
+
+.LOOSE_ENDS {
+    color: #636e72;
+}
+
+.JALLY_FANCOMIC {
+    color: #fdcb6e;
+}
+
+.SPIDEYPOOL {
+    color: #d63031;
+}
+
+.STEREK {
+    color: #0984e3;
+}
+
+.VARIOUS_OTHERS {
+    color: #6c5ce7;
+}

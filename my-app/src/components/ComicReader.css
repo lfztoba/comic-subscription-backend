@@ -1,0 +1,253 @@
+.comic-reader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.reader-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 1001;
+}
+
+.reader-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.comic-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-buttons button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.control-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.control-buttons button:disabled {
+  color: #666;
+  cursor: not-allowed;
+}
+
+.reader-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+  height: calc(100vh - 120px); /* Account for header and bottom bar */
+}
+
+.bottom-navigation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1001;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.page-counter, .zoom-level {
+  color: white;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.zoom-level {
+  min-width: 70px;
+  font-family: monospace;
+}
+
+.nav-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  height: 40px;
+  width: 40px;
+}
+
+.nav-button.back-button,
+.nav-button.fullscreen,
+.nav-button.zoom,
+.nav-button.view-mode {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-button.back-button:hover:not(:disabled),
+.nav-button.fullscreen:hover:not(:disabled),
+.nav-button.zoom:hover:not(:disabled),
+.nav-button.view-mode:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-button:hover:not(.fullscreen):not(.back-button):not(.zoom):not(.view-mode):not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pages-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.page-spread {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+}
+
+.comic-page-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.comic-page-wrapper.single-page {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.comic-page-wrapper.double-page {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.page-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.comic-page {
+  max-height: calc(100vh - 160px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.double-page .page-container {
+  flex: 1;
+  max-width: 50%;
+}
+
+.double-page .comic-page {
+  max-width: 100%;
+  max-height: calc(100vh - 160px);
+  width: auto;
+  height: auto;
+}
+
+.page-shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+}
+
+.comic-page-wrapper:first-child .page-shadow {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
+}
+
+.comic-page-wrapper:last-child .page-shadow {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+}
+
+/* Fullscreen styles */
+:fullscreen .comic-reader {
+  background-color: #000;
+}
+
+:fullscreen .reader-controls {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 768px) {
+  .reader-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .comic-title {
+    font-size: 1rem;
+  }
+
+  .page-spread {
+    flex-direction: column;
+  }
+}
